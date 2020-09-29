@@ -9,8 +9,6 @@ import multiprocessing
 import multiprocessing.sharedctypes as sharedctypes
 import os.path
 import ast
-from pandas.api.types import CategoricalDtype
-
 
 
 # Number of samples per 30s audio clip.
@@ -213,7 +211,7 @@ def load(filepath):
         SUBSETS = ('small', 'medium', 'large')
         try:
             tracks['set', 'subset'] = tracks['set', 'subset'].astype(
-                    'category', categories=SUBSETS, ordered=True)
+                     pd.CategoricalDtype(categories=SUBSETS, ordered=True))
         except ValueError:
             # the categories and ordered arguments were removed in pandas 0.25
             tracks['set', 'subset'] = tracks['set', 'subset'].astype(
