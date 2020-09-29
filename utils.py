@@ -210,11 +210,11 @@ def load(filepath):
 
         SUBSETS = ('small', 'medium', 'large')
         try:
-			cat_dtype = pd.api.types.CategoricalDtype(categories=['small', 'medium', 'large'], ordered=True)
+            cat_dtype = pd.api.types.CategoricalDtype(categories=['small', 'medium', 'large'], ordered=True)
             tracks['set', 'subset'] = tracks['set', 'subset'].astype(cat_dtype)
         except ValueError:
             # the categories and ordered arguments were removed in pandas 0.25
-			cat_dtype = pd.api.types.CategoricalDtype(categories=['small', 'medium', 'large'], ordered=True)
+            cat_dtype = pd.api.types.CategoricalDtype(categories=['small', 'medium', 'large'], ordered=True)
             tracks['set', 'subset'] = tracks['set', 'subset'].astype(cat_dtype)
 
         COLUMNS = [('track', 'genre_top'), ('track', 'license'),
